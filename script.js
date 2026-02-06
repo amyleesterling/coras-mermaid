@@ -23,9 +23,7 @@ mermaidImg.addEventListener('click', async (event) => {
     spread: 120,
     origin: { x, y },
     colors: colors,
-    gravity: 0.6,
-    ticks: 300,
-    scalar: 1.2
+    ticks: 400
   });
   
   // Second burst
@@ -35,9 +33,7 @@ mermaidImg.addEventListener('click', async (event) => {
       spread: 100,
       origin: { x, y },
       colors: colors,
-      gravity: 0.6,
-      ticks: 300,
-      scalar: 1
+      ticks: 400
     });
   }, 100);
   
@@ -48,11 +44,29 @@ mermaidImg.addEventListener('click', async (event) => {
       spread: 80,
       origin: { x, y },
       colors: colors,
-      gravity: 0.6,
-      ticks: 300,
-      scalar: 0.8
+      ticks: 400
     });
   }, 200);
+  
+  // Rising bubbles from the bottom
+  const bubbleColors = ['#87CEEB', '#ADD8E6', '#B0E0E6', '#AFEEEE', '#E0FFFF'];
+  
+  // Create multiple bubble streams
+  for (let i = 0; i < 5; i++) {
+    setTimeout(() => {
+      confetti({
+        particleCount: 30,
+        angle: 90,
+        spread: 45,
+        origin: { x: Math.random(), y: 1.1 },
+        colors: bubbleColors,
+        gravity: -0.3,
+        ticks: 400,
+        scalar: 0.8,
+        shapes: ['circle']
+      });
+    }, i * 50);
+  }
   
   if (isMermaidSongPlaying) {
     mermaidAudio.pause();
