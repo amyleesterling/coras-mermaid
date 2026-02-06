@@ -173,17 +173,26 @@ body{
   0% {
     transform: translateX(100vw) translateY(0) rotate(0deg);
   }
-  30% {
+  25% {
     transform: translateX(70vw) translateY(var(--swim-wobble)) rotate(0deg);
   }
-  45% {
-    transform: translateX(50vw) translateY(calc(var(--swim-wobble) - 50px)) rotate(180deg);
+  35% {
+    transform: translateX(60vw) translateY(calc(var(--swim-wobble) - 100px)) rotate(-45deg);
   }
-  60% {
-    transform: translateX(30vw) translateY(var(--swim-wobble)) rotate(360deg);
+  45% {
+    transform: translateX(50vw) translateY(calc(var(--swim-wobble) - 150px)) rotate(-90deg);
+  }
+  55% {
+    transform: translateX(40vw) translateY(calc(var(--swim-wobble) - 100px)) rotate(-180deg);
+  }
+  65% {
+    transform: translateX(30vw) translateY(var(--swim-wobble)) rotate(-270deg);
+  }
+  75% {
+    transform: translateX(20vw) translateY(var(--swim-wobble)) rotate(-360deg);
   }
   100% {
-    transform: translateX(-100px) translateY(var(--swim-wobble)) rotate(360deg);
+    transform: translateX(-100px) translateY(var(--swim-wobble)) rotate(-360deg);
   }
 }
 
