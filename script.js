@@ -48,25 +48,8 @@ mermaidImg.addEventListener('click', async (event) => {
     });
   }, 200);
   
-  // Rising bubbles from the bottom
-  const bubbleColors = ['#87CEEB', '#ADD8E6', '#B0E0E6', '#AFEEEE', '#E0FFFF'];
-  
-  // Create multiple bubble streams
-  for (let i = 0; i < 5; i++) {
-    setTimeout(() => {
-      confetti({
-        particleCount: 30,
-        angle: 90,
-        spread: 45,
-        origin: { x: Math.random(), y: 1.1 },
-        colors: bubbleColors,
-        gravity: -0.3,
-        ticks: 400,
-        scalar: 0.8,
-        shapes: ['circle']
-      });
-    }, i * 50);
-  }
+  // Rising bubbles from the bottom with wobble physics
+  createBubbles();
   
   if (isMermaidSongPlaying) {
     mermaidAudio.pause();
@@ -82,3 +65,41 @@ mermaidImg.addEventListener('click', async (event) => {
     }
   }
 });
+
+// Create bubbles with wobble physics
+function createBubbles() {
+  const container = document.getElementById('bubble-container');
+  const bubbleCount = 40;
+  
+  for (let i = 0; i < bubbleCount; i++) {
+    setTimeout(() => {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      
+      // Random size between 10px and 40px
+      const size = Math.random() * 30 + 10;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      
+      // Random starting position at bottom
+      const startX = Math.random() * 100;
+      bubble.style.left = `${startX}%`;
+      bubble.style.bottom = '-50px';
+      
+      // Wobble effect - creates sine wave motion
+      const wobbleAmount = (Math.random() - 0.5) * 200; // -100px to +100px
+      bubble.style.setProperty('--wobble-distance', `${wobbleAmount}px`);
+      
+      // Random duration for variety (slower for bigger bubbles)
+      const duration = 3 + (size / 10) + Math.random() * 2;
+      bubble.style.animationDuration = `${duration}s`;
+      
+      container.appendChild(bubble);
+      
+      // Remove bubble after animation completes
+      setTimeout(() => {
+        bubble.remove();
+      }, duration * 1000);
+    }, i * 30); // Stagger bubble creation
+  }
+}
