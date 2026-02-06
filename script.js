@@ -121,11 +121,6 @@ function createFish() {
       fish.src = fishImages[fishIndex];
       fish.alt = 'swimming fish';
       
-      // Make fish_3 do a loop
-      if (fishImages[fishIndex].includes('fish_3')) {
-        fish.classList.add('loopy');
-      }
-      
       // Random vertical position
       const yPosition = 20 + Math.random() * 60; // 20% to 80% from top
       fish.style.top = `${yPosition}%`;
