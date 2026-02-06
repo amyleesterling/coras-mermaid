@@ -24,11 +24,50 @@ body{
   max-width:1200px;
   margin:24px 0;
 }
-.banner-svg{
+.banner-content{
   width:100%;
-  height:auto;
+  background: linear-gradient(135deg, #ffc0da 0%, #ffd6f0 100%);
   border-radius:12px;
   box-shadow: 0 6px 18px rgba(107,46,90,0.08);
+  padding: 24px;
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+.banner-mermaid{
+  width:500px;
+  height:500px;
+  object-fit:contain;
+  border-radius:12px;
+}
+.banner-text h1{
+  margin:0 0 8px 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 48px;
+  color: #6b2e5a;
+}
+.banner-text p{
+  margin:0;
+  font-size: 16px;
+  color: #6b2e5a;
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .banner-content{
+    flex-direction:column;
+    text-align:center;
+  }
+  .banner-mermaid{
+    width:360px;
+    height:360px;
+  }
+  .banner-text h1{
+    font-size: 36px;
+  }
+  .spotify-embed{
+    max-width:100%;
+  }
 }
 
 /* main container */
@@ -42,45 +81,21 @@ body{
   align-items:center;
 }
 
-/* controls */
-.controls{
+/* Spotify players */
+.spotify-players{
   display:flex;
-  gap:12px;
-  align-items:center;
-}
-.btn{
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding:10px 16px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
-}
-.note{font-size:0.95rem; opacity:0.9}
-
-/* chips */
-.chips{
-  display:flex;
-  gap:12px;
+  gap:20px;
   flex-wrap:wrap;
   justify-content:center;
+  width:100%;
 }
-.chip{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 14px;
-  background: var(--chip-bg);
-  color: var(--accent);
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:600;
-  transition: background .14s ease, transform .08s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+.spotify-embed{
+  width:100%;
+  max-width:450px;
+  height:152px;
+  border-radius:12px;
+  box-shadow: 0 4px 12px rgba(107,46,90,0.1);
 }
-.chip:hover{ background: var(--chip-hover); transform: translateY(-2px) }
-.chip:active{ transform: translateY(0) }
 
 @media (max-width:560px){
   .banner-svg text { font-size:32px }
