@@ -39,6 +39,11 @@ body{
   height:500px;
   object-fit:contain;
   border-radius:12px;
+  cursor:pointer;
+  transition: transform 0.2s ease;
+}
+.banner-mermaid:hover{
+  transform: scale(1.02);
 }
 .banner-text h1{
   margin:0 0 8px 0;
