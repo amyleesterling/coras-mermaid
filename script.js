@@ -51,6 +51,9 @@ mermaidImg.addEventListener('click', async (event) => {
   // Rising bubbles from the bottom with wobble physics
   createBubbles();
   
+  // Create swimming fish
+  createFish();
+  
   if (isMermaidSongPlaying) {
     mermaidAudio.pause();
     isMermaidSongPlaying = false;
@@ -101,5 +104,39 @@ function createBubbles() {
         bubble.remove();
       }, duration * 1000);
     }, i * 30); // Stagger bubble creation
+  }
+}
+
+// Create swimming fish school
+function createFish() {
+  const container = document.getElementById('fish-container');
+  const fishTypes = ['🐟', '🐠', '🐡'];
+  const fishCount = 8;
+  
+  for (let i = 0; i < fishCount; i++) {
+    setTimeout(() => {
+      const fish = document.createElement('div');
+      fish.className = 'fish';
+      fish.textContent = fishTypes[Math.floor(Math.random() * fishTypes.length)];
+      
+      // Random vertical position
+      const yPosition = 20 + Math.random() * 60; // 20% to 80% from top
+      fish.style.top = `${yPosition}%`;
+      
+      // Slight wobble up and down
+      const wobble = (Math.random() - 0.5) * 100;
+      fish.style.setProperty('--swim-wobble', `${wobble}px`);
+      
+      // Random duration for variety
+      const duration = 8 + Math.random() * 4;
+      fish.style.animationDuration = `${duration}s`;
+      
+      container.appendChild(fish);
+      
+      // Remove fish after animation completes
+      setTimeout(() => {
+        fish.remove();
+      }, duration * 1000);
+    }, i * 600); // Stagger fish creation
   }
 }
