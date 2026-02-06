@@ -117,8 +117,14 @@ function createFish() {
     setTimeout(() => {
       const fish = document.createElement('img');
       fish.className = 'fish';
-      fish.src = fishImages[Math.floor(Math.random() * fishImages.length)];
+      const fishIndex = Math.floor(Math.random() * fishImages.length);
+      fish.src = fishImages[fishIndex];
       fish.alt = 'swimming fish';
+      
+      // Make fish_3 do a loop
+      if (fishImages[fishIndex].includes('fish_3')) {
+        fish.classList.add('loopy');
+      }
       
       // Random vertical position
       const yPosition = 20 + Math.random() * 60; // 20% to 80% from top

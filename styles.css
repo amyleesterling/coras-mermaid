@@ -151,9 +151,13 @@ body{
 
 .fish {
   position: absolute;
-  width: 60px;
+  width: 180px;
   height: auto;
   animation: swim linear forwards;
+}
+
+.fish.loopy {
+  animation: swimLoop linear forwards;
 }
 
 @keyframes swim {
@@ -162,6 +166,24 @@ body{
   }
   100% {
     transform: translateX(-100px) translateY(var(--swim-wobble));
+  }
+}
+
+@keyframes swimLoop {
+  0% {
+    transform: translateX(100vw) translateY(0) rotate(0deg);
+  }
+  30% {
+    transform: translateX(70vw) translateY(var(--swim-wobble)) rotate(0deg);
+  }
+  45% {
+    transform: translateX(50vw) translateY(calc(var(--swim-wobble) - 50px)) rotate(180deg);
+  }
+  60% {
+    transform: translateX(30vw) translateY(var(--swim-wobble)) rotate(360deg);
+  }
+  100% {
+    transform: translateX(-100px) translateY(var(--swim-wobble)) rotate(360deg);
   }
 }
 
