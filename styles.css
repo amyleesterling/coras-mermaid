@@ -151,17 +151,17 @@ body{
 
 .fish {
   position: absolute;
-  font-size: 30px;
+  width: 60px;
+  height: auto;
   animation: swim linear forwards;
-  transform: scaleX(-1);
 }
 
 @keyframes swim {
   0% {
-    transform: translateX(-100px) translateY(0);
+    transform: translateX(100vw) translateY(0);
   }
   100% {
-    transform: translateX(calc(100vw + 100px)) translateY(var(--swim-wobble));
+    transform: translateX(-100px) translateY(var(--swim-wobble));
   }
 }
 
