@@ -110,7 +110,7 @@ function createBubbles() {
 // Create swimming fish school
 function createFish() {
   const container = document.getElementById('fish-container');
-  const fishImages = ['assets/fish_1.png', 'assets/fish_2.png'];
+  const fishImages = ['assets/fish_1.png', 'assets/fish_2.png', 'assets/fish_3.png', 'assets/fish_4.png'];
   const fishCount = 8;
   
   for (let i = 0; i < fishCount; i++) {
